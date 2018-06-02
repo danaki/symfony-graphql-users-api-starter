@@ -1,0 +1,10 @@
+SignupInput:
+    type: input-object
+    config:
+        fields:
+            email:
+                type: "String!"
+                description: "The user email linked to his profile."
+            password:
+                type: "String!"
+                description: "The user password (in clear version !) linked to his email."

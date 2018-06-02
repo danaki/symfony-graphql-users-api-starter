@@ -1,0 +1,8 @@
+BooleanResult:
+    type: object
+    config:
+        description: "An object representing success of operation"
+        fields:
+            result:
+                type: "Boolean"
+                description: "Operation result"

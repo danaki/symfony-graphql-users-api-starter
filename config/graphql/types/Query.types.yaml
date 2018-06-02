@@ -1,0 +1,10 @@
+Query:
+    type: object
+    config:
+        description: "Query API"
+        fields:
+            # a query must be defined, even if we don't use any
+            # see https://github.com/overblog/GraphQLBundle/issues/334
+            ping:
+                type: "String"
+                resolve: '@=resolver("App\\GraphQL\\Resolvers\\PingResolver")'

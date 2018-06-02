@@ -1,0 +1,49 @@
+Mutation:
+    type: object
+    config:
+        description: "Mutation API"
+        fields:
+            login:
+                type: "Token"
+                description: "Allow to log an User"
+                access: "@=!isAuthenticated()"
+                args:
+                    input:
+                        type: LoginInput!
+                resolve: '@=mutation("App\\GraphQL\\Mutators\\Security\\LoginMutator", [args])'
+
+            signup:
+                type: "BooleanResult"
+                description: "Allow to register a new user"
+                access: "@=!isAuthenticated()"
+                args:
+                    input:
+                        type: SignupInput!
+                resolve: '@=mutation("App\\GraphQL\\Mutators\\Security\\SignupMutator", [args])'
+
+            validateEmail:
+                type: "BooleanResult"
+                description: "Allow to validate user email."
+                access: "@=!isAuthenticated()"
+                args:
+                    input:
+                        type: TokenInput!
+                resolve: '@=mutation("App\\GraphQL\\Mutators\\Security\\ValidateEmailMutator", [args])'
+
+            passwordReset:
+                type: "BooleanResult"
+                description: "Allow to reset the password of an User"
+                access: "@=!isAuthenticated()"
+                args:
+                    input:
+                        type: "EmailInput!"
+                resolve: '@=mutation("App\\GraphQL\\Mutators\\Security\\PasswordResetMutator", [args])'
+
+            passwordRestore:
+                type: "BooleanResult"
+                description: "Allow to hard reset the password of an User"
+                access: "@=!isAuthenticated()"
+                args:
+                    input:
+                        type: PasswordRestoreInput!
+                resolve: '@=mutation("App\\GraphQL\\Mutators\\Security\\PasswordRestoreMutator", [args])'

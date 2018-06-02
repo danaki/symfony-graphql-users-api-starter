@@ -1,0 +1,7 @@
+EmailInput:
+    type: input-object
+    config:
+        fields:
+            email:
+                type: "String!"
+                description: "An email"

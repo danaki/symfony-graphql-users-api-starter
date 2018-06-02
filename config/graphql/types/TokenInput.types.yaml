@@ -1,0 +1,7 @@
+TokenInput:
+    type: input-object
+    config:
+        fields:
+            token:
+                type: "String!"
+                description: "A token"

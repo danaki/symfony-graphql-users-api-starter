@@ -1,0 +1,26 @@
+security:
+    encoders:
+        App\Security\SecurityUser:
+            algorithm: bcrypt
+
+    providers:
+        db_provider:
+            entity:
+                class: App\Security\SecurityUser
+
+    firewalls:
+        dev:
+            pattern: ^/(_(profiler|wdt)|css|images|js)/
+            security: false
+        main:
+            anonymous: true
+            stateless: true
+            guard:
+                authenticators:
+                    - lexik_jwt_authentication.jwt_token_authenticator
+
+    # Easy way to control access for large sections of your site
+    # Note: Only the *first* access control that matches will be used
+    access_control:
+        # - { path: ^/admin, roles: ROLE_ADMIN }
+        # - { path: ^/profile, roles: ROLE_USER }
